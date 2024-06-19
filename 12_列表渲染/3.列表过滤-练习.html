@@ -22,8 +22,8 @@
       </ul>
     </div>
     <script type="text/javascript">
-      //用监视属性书写功能
-      new Vue({
+      /* 用监视属性书写功能*/
+      /*      new Vue({
         el: "#root",
         data: {
           keyword: "",
@@ -35,21 +35,20 @@
           ],
           filPersons: [],
         },
-        //watch监听用户输入项keyword的变化
+        // watch监听数据变化
         watch: {
           keyword: {
-            immediate: true, //上来就进行监视获得到的newV是''
+            immediate: true,
             handler(newV) {
-              // console.log(newV)
-              //不要修改元数据，这样只会越写越少
-              //注意一个某个字符串.indexOf('')是0而不是-1(都包含空字符串)
+              // 讲新的数据返回给filPersons
               this.filPersons = this.persons.filter(
+                //       判断输入的数据索引编号是否存在数组中
                 (p) => p.name.indexOf(newV) !== -1,
               );
             },
           },
         },
-      });
+      });*/
 
       //用计算属性书写功能
       //当computed和watch都可以实现基本功能时优先考虑computed (重要)
@@ -64,9 +63,12 @@
             { id: "004", name: "温兆伦", age: 22, sex: "男" },
           ],
         },
+        // 计算属性计算
         computed: {
           filPersons() {
+            // 将的数据返回给filPersons
             return this.persons.filter(
+              //       判断输入的数据索引编号是否存在数组中
               (p) => p.name.indexOf(this.keyword) !== -1,
             );
           },
